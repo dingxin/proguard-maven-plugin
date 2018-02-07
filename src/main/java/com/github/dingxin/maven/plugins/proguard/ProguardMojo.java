@@ -87,9 +87,9 @@ public class ProguardMojo extends AbstractMojo {
 	/**
 	 * ProGuard Filters for the input jar
 	 * 
-	 * e.g. !module-info.class,!META-INF/**
+	 * e.g. !module-info.class,!META-INF/maven/**
 	 */
-	@Parameter(defaultValue = "!module-info.class,!META-INF/**")
+	@Parameter(defaultValue = "!module-info.class,!META-INF/maven/**")
 	private String inFilter;
 
 	/**
@@ -194,21 +194,19 @@ public class ProguardMojo extends AbstractMojo {
 		String type = mavenProject.getPackaging();
 		getLog().debug("Package Type: " + type);
 
-		String finalName = mavenProject.getBuild().getFinalName();
-
 		if ("jar".equals(type)) {
 			if (injar == null) {
-				injar = finalName + ".jar";
+				injar = mavenProject.getBuild().getFinalName() + ".jar";
 			}
 			if (outjar == null) {
-				outjar = finalName + ".jar";
+				outjar = injar;
 			}
 		} else if ("war".equals(type)) {
 			if (injar == null) {
 				injar = "classes";
 			}
 			if (outjar == null) {
-				outjar = finalName + ".war";
+				outjar = injar;
 			}
 		}
 
