@@ -1,7 +1,7 @@
 # proguard-maven-plugin #
 
 Maven Plugin for ProGuard
-
+This plugin supports Java7 or newer.
 
 ## Usage ##
 
@@ -13,7 +13,7 @@ Add plugin configuration into your project's pom.xml
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -93,7 +93,7 @@ Supported `<configuration>` children as below:
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -119,7 +119,7 @@ Supported `<configuration>` children as below:
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -147,7 +147,7 @@ Supported `<configuration>` children as below:
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
