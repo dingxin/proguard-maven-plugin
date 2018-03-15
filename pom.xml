@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.dingxin</groupId>
 	<artifactId>proguard-maven-plugin</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>maven-plugin</packaging>
 	<url>https://github.com/dingxin/proguard-maven-plugin</url>
 	<name>Maven Plugin for ProGuard</name>

@@ -149,6 +149,10 @@ public class ProguardMojo extends AbstractMojo {
 			return;
 		}
 
+		if (injar == null) {
+			return;
+		}
+
 		setDefaultJarName();
 
 		List<String> args = getArgs();
