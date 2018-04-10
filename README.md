@@ -93,7 +93,7 @@ Supported `<configuration>` children as below:
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.3</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -119,7 +119,7 @@ Supported `<configuration>` children as below:
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.3</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -140,14 +140,14 @@ Supported `<configuration>` children as below:
 </build>
 ```
 
-### Example with Custom Options ###
+### Example for war project ###
 ```
 <build>
 	<plugins>
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.3</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
@@ -166,6 +166,33 @@ Supported `<configuration>` children as below:
 					<option>-keep public class * { public protected *; }</option>
 					<option>-dontwarn org.apache.logging.log4j.**</option>
 				</options>
+				<libs>
+					<lib>${java.home}/jmods/java.base.jmod(!**.jar;!module-info.class)</lib>
+				</libs>
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
+```
+
+
+### Example with Custom Options ###
+```
+<build>
+	<plugins>
+		<plugin>
+			<groupId>com.github.dingxin</groupId>
+			<artifactId>proguard-maven-plugin</artifactId>
+			<version>1.0.3</version>
+			<executions>
+				<execution>
+					<phase>prepare-package</phase>
+					<goals>
+						<goal>proguard</goal>
+					</goals>
+				</execution>
+			</executions>
+			<configuration>
 				<libs>
 					<lib>${java.home}/jmods/java.base.jmod(!**.jar;!module-info.class)</lib>
 				</libs>

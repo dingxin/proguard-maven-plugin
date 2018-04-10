@@ -188,6 +188,14 @@ public class ProguardMojo extends AbstractMojo {
 		if (result != 0) {
 			throw new MojoExecutionException("ProGuard failed (result=" + result + ")");
 		}
+		//remove classes/classes when injar and outjar are directory
+		File outjarFile = new File(targetDirectory, outjar);
+		if(outjarFile.isDirectory()) {
+			File classesDir = new File(targetDirectory, outjar + "/classes/classes");
+			File classesFile = classesDir.listFiles()[0];
+			classesFile.renameTo(new File(targetDirectory, outjar + "/" + classesFile.getName()));
+			classesDir.getParentFile().delete();
+		}
 	}
 
 	private void setDefaultJarName() {
@@ -345,7 +353,8 @@ public class ProguardMojo extends AbstractMojo {
 			args.add("-keepattributes *Annotation*");// 避免混淆注解
 			args.add("-keepattributes Signature");// 避免混淆泛型
 			args.add("-keepattributes InnerClasses");// 避免混淆内部类
-			args.add("-keepclassmembers class * { @**.* *; }");// 避免混淆带注解的成员
+			args.add("-keepclassmembers class * { @** *; }");// 避免混淆带注解的成员
+			args.add("-keepparameternames");// 避免混淆被保护的方法的参数类型和参数名
 			args.add("-keep public class * { public protected *; }");// 避免混淆公开的成员
 		}
 	}
