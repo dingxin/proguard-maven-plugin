@@ -68,7 +68,7 @@ Supported `<configuration>` children as below:
 
 ### Add dependency jars to -injars arguments ###
 ```
-<includeDependencyInjar>false</includeDependencyInjar>
+<includeDependencyInjar>true</includeDependencyInjar>
 ```
 
 ### ProGuard Filters for dependency jars ###
