@@ -13,7 +13,7 @@ Add plugin configuration into your project's pom.xml
 		<plugin>
 			<groupId>com.github.dingxin</groupId>
 			<artifactId>proguard-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.3</version>
 			<executions>
 				<execution>
 					<phase>package</phase>
